@@ -19,10 +19,10 @@ library(pool)
 
 pool <- dbPool(
   drv = RMySQL::MySQL(),
-  dbname = "pimaa",
-  host = "160.153.129.223",
-  user = "pimaa",
-  password = "p11M07Q",
+  dbname = "**",
+  host = "***",
+  user = "***",
+  password = "***",
   idleTimeout = 3600000
 )
 onStop(function() {
