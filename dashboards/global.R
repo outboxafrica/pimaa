@@ -22,7 +22,7 @@ pool <- dbPool(
   dbname = "**",
   host = "***",
   user = "***",
-  password = "***",
+  password = "***********",
   idleTimeout = 3600000
 )
 onStop(function() {
