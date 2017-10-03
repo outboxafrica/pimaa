@@ -15,9 +15,15 @@ January, 2017
 
 * A collection of **sensors ** that include CO and NO2 sensors, DHT22 temperature & humidity sensor, BMP085 air pressure sensor, LDR light sensor, Microphone and rail-to-rail op-amp to amplify sound signals to measure the noise pollution.
 
+* We use **Adafruit**, a python library for accessing the BMP series sensors data. [https://github.com/adafruit](https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code)
+
+* We use **gspreadsheet** to send over the data to a google spreadsheet over an internet connection for more robust usage in analytics. [https://github.com/burnash/gspread](https://github.com/burnash/gspread)
+
+* The **Google Appscript** to be used for the formatting of the data and spreadsheet formula joins or lookups. [https://developers.google.com/apps-script/](https://developers.google.com/apps-script/)
+
 * We visualize the data in **Shiny** and **Rstats**, and as we keep and almost real time dashboard of the data that will be coming in from the different monitoring sensors. The analytics shall be web based and interactive for users to access. [http://shiny.rstudio.com](http://shiny.rstudio.com)
 
-* **Google Cloud Compute** was selected and running on Linux Distro. Google Cloud Storage allows world-wide storage and retrieval of any amount of data at any time. You can use Google Cloud Storage for a range of scenarios including serving website content, storing data for archival and disaster recovery, or distributing large data objects to users via direct download [https://cloud.google.com](https://cloud.google.com)
+* **AWS Cloud** was selected and running on Linux Distro. This offers reliable, scalable, secure and inexpensive cloud computing services that fit such a project.  [https://aws.amazon.com](https://aws.amazon.com/)
 
 * **LoRaWAN** is a new, private and spread-spectrum modulation technique which allows sending data at extremely low data-rates to extremely long ranges. The low data-rate (down to few bytes per second) and LoRaWAN modulation lead to very low receiver sensitivity (down to -136 dBm), which combined to an output power of +14 dBm means extremely large link budgets: up to 150 dB, what means more than 22 km (13.6 miles) in LOS links and up to 2 km (1.2 miles) in NLOS links in urban environment (going through buildings). We do use this technology to share our sensors data to central gateway before transferred to server through the internet. [https://www.lora-alliance.org](https://www.lora-alliance.org/)
 
@@ -40,7 +46,7 @@ Finally with the design Architecture above, we figured some issues that will nee
 * Consideration of Low power WAN Infrastructure e.g LoraWans etc 
 
 Project PiMaa
-Website: www.pimaa.io
+
 Twitter: @projectpimaa 
 
 .
