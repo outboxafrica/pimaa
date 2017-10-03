@@ -16,12 +16,14 @@ shinyUI(navbarPage("PiMaa - Airquality Data",
      #                label = 'Date range input: yyyy-mm-dd',
      #                start = Sys.Date() - 2, end = Sys.Date() + 2
      # ),
+     h2("Select Node:"),
+     textInput("node", "Enter the Node:", "N3"),
      dateRangeInput("dates", label = h3("Date range"),
                      start = "2017-01-18", end = "2014-01-30"
       
     ),
       
-      h3("Histogram"),
+      h2("Histogram"),
       helpText("Select a variable to plot a histogram."),
       radioButtons("plot","Variable",
                    c("Temperature"="var0",
@@ -36,12 +38,7 @@ shinyUI(navbarPage("PiMaa - Airquality Data",
                    )
     ),
     mainPanel(
-      #verbatimTextOutput("dateRangeText"),
-      plotOutput("lineplot_a", height="300px"),
-      plotOutput("lineplot_n", height="300px"),
-      plotOutput("boxplot", height="300px"),
-      plotOutput("boxplot_o", height="300px"),
-      plotOutput("boxplot_n", height="300px")
+
 
     )
   )
@@ -49,7 +46,8 @@ shinyUI(navbarPage("PiMaa - Airquality Data",
   
   tabPanel("Tables",
      mainPanel(
-        includeMarkdown("about.md")
+        includeMarkdown("about.md"),
+        DT::dataTableOutput("table")
      )
   )
 )
