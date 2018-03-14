@@ -1,17 +1,38 @@
-# Richard Ngamita
+# Author: Richard Ngamita. 
 # ngamita@gmail.com
-# PiMaa Project Dashboard Visualizations and Graphs. 
 
-# Load Libraries to be used. 
-library(shiny)
 
-# server.R
-function(input, output, session){
-  output$table <- DT::renderDataTable({
-    query <- sqlInterpolate(ANSI(), "SELECT * FROM readings WHERE node_id = ?node LIMIT 1000;",
-                            node = input$node)
-    outp <- dbGetQuery(pool, query)
-    ret <- DT::datatable(outp)
-    return(ret)
-  })
-}
+shinyServer(function(input, output) {
+    
+    # Datasources mapping and arrangement for visualizations. 
+    # Main datasource dataframe: filtered
+    # Do not edit anything here. 
+    pimaa_df <- reactive({
+            pimaa_data %>%
+            mutate(closed_at = ymd(as.Date(closed_at))) 
+    })
+
+
+    # Print outputs. 
+    #output$input <- renderPrint({ as.list(input) })
+    
+    output$vb_pop <- renderValueBox({
+        valueBox(
+            tagList(
+                # format number from the global.R
+                fmtnum(nrow(pimaa_df()))
+                #hcspakr
+                #issue_plot
+            ),
+            subtitle = "Reported Issues to Date:",
+            icon = icon("chart")
+        )
+        
+    })
+    
+    output$table <- renderTable({
+        pimaa_df()
+    })
+    
+    
+})
